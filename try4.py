@@ -31,6 +31,8 @@ def dataPreview(df):
     )
 
 def productMixContri(df):
+    df['Employee Name'] = df['Employee Name'].astype(str)
+    
     revenue_cols = ['Brokerage', 'Unlisted Share', 'Insurance', 'Wealth']
     product_totals = df[revenue_cols].sum().reset_index()
     product_totals.columns = ['Product Line', 'Total Revenue']
