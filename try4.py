@@ -68,6 +68,7 @@ def productMixContri(df):
     #---------------------------------------------------------------------------------------------------------------------------------------
     st.write("Debug - Columns:", df.columns.tolist())
     st.write(df[['Employee Name'] + revenue_cols].head())
+    st.write(df["Employee Name"].dtype)
 
     fig_bar = px.bar(
         df,
