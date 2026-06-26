@@ -66,8 +66,8 @@ def productMixContri(df):
 
     st.subheader('Product Revenue split per Employee')
     #---------------------------------------------------------------------------------------------------------------------------------------
-    st.write(df[["Employee Name"] + revenue_cols].head())
-    st.write(df.columns.tolist())
+    # st.write(df[["Employee Name"] + revenue_cols].head())
+    # st.write(df.columns.tolist())
     
     # st.write("Plotly:", plotly.__version__)
     # st.write("Pandas:", pd.__version__)
@@ -76,7 +76,7 @@ def productMixContri(df):
 
     fig_bar = px.bar(
         df,
-        x=df["Employee Name"].astype(str),
+        x='Employee Name',
         y=revenue_cols,
         title='Revenue Distribution Across Team members',
         labels={'value':'Revenue Generated', 'variable':'Product Type'},
