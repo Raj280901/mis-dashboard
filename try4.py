@@ -72,7 +72,7 @@ def productMixContri(df):
 
     fig_bar = px.bar(
         df,
-        x='Employee Name',
+        x=df["Employee Name"].astype(str),
         y=revenue_cols,
         title='Revenue Distribution Across Team members',
         labels={'value':'Revenue Generated', 'variable':'Product Type'},
