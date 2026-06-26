@@ -72,6 +72,12 @@ def productMixContri(df):
         labels={'value':'Revenue Generated', 'variable':'Product Type'},
         barmode='stack'
     )
+
+    fig_bar.update_layout(
+        bargap=0.2,
+        xaxis={'type':'category'},
+        height=500
+    )
     st.plotly_chart(fig_bar, use_container_width=True)
 
     return product_totals, revenue_cols
