@@ -1,5 +1,5 @@
 pandas
 streamlit
-plotly
+plotly==6.8.0
 openpyxl
 requests
