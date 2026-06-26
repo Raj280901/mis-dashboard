@@ -72,7 +72,7 @@ def productMixContri(df):
         labels={'value':'Revenue Generated', 'variable':'Product Type'},
         barmode='stack'
     )
-    st.plotly_chart(fig_bar, width='stretch')
+    st.plotly_chart(fig_bar, use_container_width=True)
 
     return product_totals, revenue_cols
 
