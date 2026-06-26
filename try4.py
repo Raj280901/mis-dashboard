@@ -65,6 +65,9 @@ def productMixContri(df):
         st.plotly_chart(fig, width='stretch')
 
     st.subheader('Product Revenue split per Employee')
+    #---------------------------------------------------------------------------------------------------------------------------------------
+    st.write("Debug - Columns:", df.columns.tolist())
+    st.write(df[['Employee Name'] + revenue_cols].head())
 
     fig_bar = px.bar(
         df,
