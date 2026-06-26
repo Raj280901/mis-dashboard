@@ -70,9 +70,9 @@ def productMixContri(df):
     st.write(df.columns.tolist())
     
     st.write("Plotly:", plotly.__version__)
-    st.write("Pandas:", pd.__version__)
-    st.write("Streamlit:", st.__version__)
-    st.write("Python:", sys.version)
+    # st.write("Pandas:", pd.__version__)
+    # st.write("Streamlit:", st.__version__)
+    # st.write("Python:", sys.version)
 
     fig_bar = px.bar(
         df,
