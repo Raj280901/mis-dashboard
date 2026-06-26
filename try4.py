@@ -3,7 +3,6 @@ import streamlit as st
 import plotly.express as px
 import requests
 
-
 def uploadFile():
     upload = st.file_uploader("Upload file", type=['xlsx'])
     if upload:
@@ -179,8 +178,13 @@ def employee_analytics(df):
 
     revenue_cols = ['Brokerage', 'Unlisted Share', 'Insurance', 'Wealth']
     aum_cols = ['AUMC', 'MF AUM', 'Debt AUM', 'Advisory AUM', 'PMS AUM', 'AIF AUM']
+
+    for col in revenue_cols + aum_cols:
+        df[col] = pd.to_numeric(df[col], errors='coerce').fillna(0)
+
     df['Total Income Generated'] = df[revenue_cols].sum(axis=1)
     df['Total AUM Managed'] = df[aum_cols].sum(axis=1)
+    # df["Total AUM Managed"] = (pd.to_numeric(df["Total AUM Managed"], errors="coerce").fillna(0))
 
     st.header('Employee Productivity and Sales')
 
@@ -274,7 +278,7 @@ def employee_analytics(df):
         df,
         x="KYC",
         y="Total Income Generated",
-        size="Total AUM Managed",
+        size=df["Total AUM Managed"].to_numpy(),
         hover_name="Employee Name",
         text="Merged_Display_Name",
         title="KYC Onboarding Interactions vs Total Revenue Realised",
@@ -367,7 +371,7 @@ if file_data:
         file_name="MIS.xlsx",
         mime="text/xlsx"
     )
-    
+
 page_setp()
 df = uploadFile()
 if df is not None:
