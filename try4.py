@@ -352,11 +352,11 @@ def download_file():
 def tabs(df):
     tab1, tab2 = st.tabs(["Products", "AUM"])
     with tab1:
-        # dataPreview(df)
+        dataPreview(df)
         product_totals, revenue_cols = productMixContri(df)
         toppers(df, product_totals, revenue_cols)
     with tab2:
-        # dataPreview(df)
+        dataPreview(df)
         aum_pool_highlights(df)
 
 def page_setp():
